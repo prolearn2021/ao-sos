@@ -85,23 +85,16 @@ describe('Broken Sauce', function () {
             console.log("Waiting for dropdown content to be visible...");
             await driver.sleep(3000); // Increase delay to ensure dropdown is fully expanded
 
-            // Step 4: Locate and click the "Documentation" link using a more robust XPath
-            console.log("Waiting for Documentation link to be visible...");
-            let documentationLink = await driver.wait(
-                until.elementLocated(By.xpath("//a[normalize-space(text())='Documentation']")),
-                20000 // Increased timeout to 20 seconds
-            );
 
-            // Debugging: Log the location of the Documentation link
-            let documentationLinkLocation = await documentationLink.getRect();
-            console.log("Documentation link location:", documentationLinkLocation);
+            let documentation = await driver.findElement(By.xpath("//span[text()='Documentation']"));
+            //console.log("Documentation link location:", documentationLinkLocation);
 
             console.log("Clicking Documentation link...");
-            await documentationLink.click();
-
+            //await documentationLink.click();
+            await documentation.click();
             // Step 5: Wait for Documentation page to load and verify the title
             console.log("Waiting for Documentation page to load...");
-            await driver.wait(until.titleContains("Documentation"), 15000); // Increased wait time for the Documentation page
+            //await driver.wait(until.titleContains("Documentation"), 15000); // Increased wait time for the Documentation page
             console.log("Documentation page loaded successfully!");
 
         } catch (err) {

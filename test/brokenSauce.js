@@ -86,7 +86,7 @@ describe('Broken Sauce', function () {
             await driver.sleep(3000); // Increase delay to ensure dropdown is fully expanded
 
 
-            let documentation = await driver.findElement(By.xpath("//span[text()='Documentation']"));
+            let documentation = await driver.findElement(By.xpath("//*[@id='__next']/header/div/div/div[1]/div[2]/div[4]/div[2]/div/div[1]/div[1]/div[2]/div[2]/div[1]/a/div/div[1]/div/div/span"));
             //console.log("Documentation link location:", documentationLinkLocation);
 
             console.log("Clicking Documentation link...");
